@@ -35,49 +35,66 @@ function playRound() {
     if (humanChoice == "rock") {
         if (computerChoice == "scissors" ) {
             humanScore += 1;
-            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`)
-            console.log("You win the round!")
+            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`);
+            console.log("You win the round!");
             return 
         } else if (computerChoice == "paper") {
             computerScore += 1;
-            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`)
-            console.log("Computer wins the round!")
+            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`);
+            console.log("Computer wins the round!");
             return;
         } else if (computerChoice == "rock") {
-            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`)
-            console.log("A tie!")
+            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`);
+            console.log("A tie!");
         }
     } else if (humanChoice == "scissors") {
         if (computerChoice == "paper" ) {
             humanScore += 1;
-            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`)
-            console.log("You win the round!")
+            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`);
+            console.log("You win the round!");
             return 
         } else if (computerChoice == "rock") {
             computerScore += 1;
-            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`)
-            console.log("Computer wins the round!")
+            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`);
+            console.log("Computer wins the round!");
             return;
         } else if (computerChoice == "scissors") {
-            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`)
-            console.log("A tie!")
+            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`);
+            console.log("A tie!");
         }
-    } else if (humanChoice == "rock") {
-        if (computerChoice == "scissors" ) {
+    } else if (humanChoice == "paper") {
+        if (computerChoice == "rock" ) {
             humanScore += 1;
-            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`)
-            console.log("You win the round!")
+            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`);
+            console.log("You win the round!");
             return 
-        } else if (computerChoice == "paper") {
+        } else if (computerChoice == "scissors") {
             computerScore += 1;
-            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`)
-            console.log("Computer wins the round!")
+            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`);
+            console.log("Computer wins the round!");
             return;
-        } else if (computerChoice == "rock") {
-            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`)
-            console.log("A tie!")
+        } else if (computerChoice == "paper") {
+            console.log(`You picked ${humanChoice} the computer picked ${computerChoice}`);
+            console.log("A tie!");
         }
     }
 }
 
-playRound()
+function playGame() {
+    let roundCount = 0;
+    while (roundCount < 5) {
+        playRound()
+        console.log(`Score:\nYou: ${humanScore} Computer: ${computerScore}`);
+        roundCount += 1;
+    }
+
+    if (humanScore > computerScore) {
+        console.log("You win the game!");
+    } else if (computerScore > humanScore) {
+        console.log("The computer wins the game!");
+    } else {
+        console.log("No winner!  A tie!");
+    }
+}
+
+playGame();
