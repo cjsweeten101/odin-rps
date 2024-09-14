@@ -15,4 +15,11 @@ function getComputerChoice () {
     return choice;
 }
 
-console.log(getComputerChoice());
+function getHumanChoice () {
+    let choices = ["rock", "paper", "scissors"];
+    let choice = prompt("Enter rock paper or scissors!").toLowerCase();
+    while (!choices.includes(choice)){
+        choice = prompt("Sorry not recognized, please enter rock paper or scissors").toLowerCase();
+    }
+    return choice;
+}
