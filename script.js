@@ -1,6 +1,12 @@
 let humanScore = 0;
 let computerScore = 0;
+let currentHumanChoice = '';
+const div = document.querySelector("div");
+div.addEventListener("click", onButtonClick);
 
+const onButtonClick = function(e) {
+    
+}
 
 function getComputerChoice () {
     let num = Math.floor(Math.random() * 3);
@@ -19,7 +25,8 @@ function getComputerChoice () {
     return choice;
 }
 
-function getHumanChoice () {
+
+/*function getHumanChoice () {
     let choices = ["rock", "paper", "scissors"];
     let choice = prompt("Enter rock paper or scissors!").toLowerCase();
     while (!choices.includes(choice)){
@@ -27,6 +34,7 @@ function getHumanChoice () {
     }
     return choice;
 }
+*/
 
 function playRound() {
     let humanChoice = getHumanChoice();
@@ -82,12 +90,12 @@ function playRound() {
 
 function playGame() {
     let roundCount = 0;
-    while (roundCount < 5) {
-        playRound()
-        console.log(`Score:\nYou: ${humanScore} Computer: ${computerScore}`);
-        roundCount += 1;
-    }
-
+    //while (roundCount < 5) {
+    playRound()
+    console.log(`Score:\nYou: ${humanScore} Computer: ${computerScore}`);
+    roundCount += 1;
+    //}
+    /*
     if (humanScore > computerScore) {
         console.log("You win the game!");
     } else if (computerScore > humanScore) {
@@ -95,6 +103,7 @@ function playGame() {
     } else {
         console.log("No winner!  A tie!");
     }
+    */
 }
 
 playGame();
