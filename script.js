@@ -2,6 +2,7 @@ let humanScore = 0;
 let computerScore = 0;
 let currentHumanChoice = '';
 let currentComputerChoice = '';
+let roundCount = 0;
 const div = document.querySelector("div");
 const score = document.querySelector("#score");
 const currentChoices = document.querySelector("#current-choices")
@@ -105,14 +106,27 @@ function playRound() {
 }
 
 function playGame() {
-    let roundCount = 0;
-    //while (roundCount < 5) {
+    if (roundCount == 5) {
+        roundCount = 0;
+        humanScore = 0;
+        computerScore = 0;
+    }
     playRound()
-    console.log(`Score:\nYou: ${humanScore} Computer: ${computerScore}`);
-    score.textContent = `Human: ${humanScore}  Computer: ${computerScore}`
-    currentChoices.textContent = `You picked ${currentHumanChoice} the computer picked ${currentComputerChoice}`;
     roundCount += 1;
-    console.log("hello")
+    console.log(`Score:\nYou: ${humanScore} Computer: ${computerScore}`);
+    score.textContent = `Human: ${humanScore}  Computer: ${computerScore} Round: ${roundCount}  `
+    currentChoices.textContent = `You picked ${currentHumanChoice} the computer picked ${currentComputerChoice}`;
+    if (roundCount >= 5) {
+        let winner_text;
+        if (humanScore > computerScore) {
+            winner_text = document.createTextNode("Human Wins!");
+        } else if (computerScore > humanScore) {
+            winner_text = document.createTextNode("Computer Wins");
+        } else {
+            winner_text = document.createTextNode("A Tie");
+        }
+        score.appendChild(winner_text);
+    }
     //}
     /*
     if (humanScore > computerScore) {
